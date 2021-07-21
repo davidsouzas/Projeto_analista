@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <title>HTML e CSS para Formulários: Sugestões</title>
+    <link href="estilo.css" rel="stylesheet">
+</head>
+
+<body>
+    <form action="#" method="post" , id="formulario">
+        <fieldset>
+            <fieldset class="grupo">
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" style="width: 10em" value="">
+                </div>
+                <div class="campo">
+                    <label for="snome">CPF</label>
+                    <input type="text" onKeyPress="MascaraGenerica(this, 'CPF');" id="cpf" name="cpf" style="width: 10em" value="">
+                </div>
+            </fieldset>
+            <div class="campo">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" name="email" style="width: 21em" value="">
+            </div>
+            <div class="campo">
+                <label for="telefone">Telefone</label>
+                <input type="text" onKeyPress="MascaraGenerica(this, 'TELEFONE');" id="telefone" name="telefone" style="width: 10em" value="">
+            </div>
+            <fieldset class="grupo">
+                <div class="campo">
+                    <label>Habilitação</label>
+                    <label>
+                        <input type="radio" name="habilitacao" value="sim"> Sim
+                    </label>
+                    <label>
+                        <input type="radio" name="habilitacao" value="nao"> Não
+                    </label>
+                </div>
+                <div class="campo">
+                    <label for="categoria">Categoria</label>
+                    <input type="text" id="categoria" name="categoria" style="width: 15em" value="">
+                </div>
+            </fieldset>
+            <div class="campo">
+                <label>Língua Estrangeira</label>
+                <label>
+                    <input type="checkbox" name="idioma" value="eng"> Inglês
+                    <input type="checkbox" name="idioma" value="es"> Espanhol
+                    <input type="checkbox" name="idioma" value="fr"> Françês
+                </label>
+            </div>
+            <fieldset class="grupo">
+                <div class="campo target">
+                    <label for="estado">Estado</label>
+                    <select name="estado" id="estado">
+                        <option name="Selecione" value="Selecione">Selecione</option>
+                    </select>
+                </div>
+                <div class="campo targetcity">
+                    <label for="cidade">Cidade</label>
+                    <select name="cidade" id="cidade">
+                    </select>
+                </div>
+
+            </fieldset>
+
+            <div class="campo">
+                <label for="cep">CEP</label>
+                <input type="text" onKeyPress="MascaraGenerica(this, 'CEP');"  id="cep" name="cep" style="width: 11em" value="">
+            </div>
+
+            <div class="campo">
+                <label for="mensagem">Mensagem</label>
+                <textarea rows="6" style="width: 20em" id="mensagem" name="mensagem"></textarea>
+            </div>
+
+
+
+            <button type="submit" name="submit" , onclick="validar()">Enviar</button>
+        </fieldset>
+    </form>
+</body>
+
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="meu_js.js"></script>
