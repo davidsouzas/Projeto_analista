@@ -1,5 +1,6 @@
 # Projeto_analista
 
-Toda validação foi feita no Javascript
-Municipios e estados foi usado a Api do IBGE
+<p>Elementos dinâmicos e toda validação foi feita no Javascript</p>
+<p>API do IBGE foi usada para buscar estados e municipios</p>
  
+
