@@ -14,31 +14,33 @@
                     <input type="text" id="nome" name="nome" style="width: 10em" value="">
                 </div>
                 <div class="campo">
-                    <label for="snome">CPF</label>
-                    <input type="text" onKeyPress="MascaraGenerica(this, 'CPF');" id="cpf" name="cpf" style="width: 10em" value="">
+                    <label for="cpf">CPF</label>
+                    <input type="text" onBlur="ValidarCPF(formulario.cpf);" onKeyPress="MascaraGenerica(this, 'CPF');"
+                        id="cpf" name="cpf" style="width: 10em" value="">
                 </div>
             </fieldset>
             <div class="campo">
                 <label for="email">E-mail</label>
-                <input type="text" id="email" name="email" style="width: 21em" value="">
+                <input type="text" onblur="checarEmail();" id="email" name="email" style="width: 21em" value="">
             </div>
             <div class="campo">
                 <label for="telefone">Telefone</label>
-                <input type="text" onKeyPress="MascaraGenerica(this, 'TELEFONE');" id="telefone" name="telefone" style="width: 10em" value="">
+                <input type="text" onKeyPress="MascaraGenerica(this, 'TELEFONE');" id="telefone" name="telefone"
+                    style="width: 10em" value="">
             </div>
             <fieldset class="grupo">
                 <div class="campo">
                     <label>Habilitação</label>
                     <label>
-                        <input type="radio" name="habilitacao" value="sim"> Sim
+                        <input class="habilitacao" type="radio" name="habilitacao" value="sim"> Sim
                     </label>
                     <label>
-                        <input type="radio" name="habilitacao" value="nao"> Não
+                        <input class="habilitacao" checked type="radio" name="habilitacao" value="nao"> Não
                     </label>
                 </div>
-                <div class="campo">
+                <div class="campo hide">
                     <label for="categoria">Categoria</label>
-                    <input type="text" id="categoria" name="categoria" style="width: 15em" value="">
+                    <input type="text" id="categoria" name="categoria" disabled style="width: 15em" value="">
                 </div>
             </fieldset>
             <div class="campo">
@@ -66,16 +68,90 @@
 
             <div class="campo">
                 <label for="cep">CEP</label>
-                <input type="text" onKeyPress="MascaraGenerica(this, 'CEP');"  id="cep" name="cep" style="width: 11em" value="">
+                <input type="text" onblur="getCEP();" onKeyPress="MascaraGenerica(this, 'CEP');" id="cep" name="cep"
+                    style="width: 11em" value="">
             </div>
-
+            <fieldset class="grupo">
+                <div class="campo">
+                    <label for="logradouro">Logradouro</label>
+                    <input type="text" id="logradouro" name="logradouro" style="width: 11em" value="">
+                </div>
+                <div class="campo">
+                    <label for="numero">Número</label>
+                    <input type="text" id="numero" name="numero" style="width: 11em" value="">
+                </div>
+            </fieldset>
             <div class="campo">
-                <label for="mensagem">Mensagem</label>
-                <textarea rows="6" style="width: 20em" id="mensagem" name="mensagem"></textarea>
+                <label for="complemento">Complemento</label>
+                <input type="text" id="complemento" name="complemento" style="width: 11em" value="">
             </div>
+            <fieldset class="grupo">
+                <div class="campo target">
+                    <label for="cargo">Cargo</label>
+                    <select name="cargo" id="cargo">
+                        <option name="Selecione" value="Selecione">Selecione</option>
+                        <option name="Selecione" value="Selecione">Cargo 1</option>
+                        <option name="Selecione" value="Selecione">Cargo 2</option>
+                        <option name="Selecione" value="Selecione">Cargo 3</option>
+                        <option name="Selecione" value="Selecione">Cargo 4</option>
+                        <option name="Selecione" value="Selecione">Cargo 5</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="salario">Salario</label>
+                    <input type="text" onKeyPress="MascaraGenerica(this, 'MOEDA');" id="salario" name="salario"
+                        style="width: 11em" value="">
+                </div>
+            </fieldset>
 
-
-
+            <table style="border-collapse: collapse;" id="table1">
+                <tr>
+                    <td>Dia da Semana</td>
+                    <td>Hora Início</td>
+                    <td>Hora Fim</td>
+                    <td>Tempo de Descanso (h)</td>
+                    <td>Carga Horária (h)</td>
+                </tr>
+                <tr>
+                    <td>Segunda</td>
+                    <td><input class="test" id="inicio_seg" maxlength="5" onKeyPress="Mascara_Hora(this);"  type="text"/></td>
+                    <td><input class="test" id="fim_seg" maxlength="5" onKeyPress="Mascara_Hora(this);"  type="text"/></td>
+                    <td><input class="test" id="descanso_seg" maxlength="2" onblur="maior(this.value)" type="text" onKeyPress="MascaraGenerica(this, 'INTEIRO');"/></td>
+                    <td><input id="carga_seg" readonly type="text"/></td>
+                </tr>
+                <tr>
+                    <td>Terça</td>
+                    <td><input class="test" id="inicio_ter" maxlength="5" onKeyPress="Mascara_Hora(this);"  type="text"/></td>
+                    <td><input class="test" id="fim_ter" maxlength="5" onKeyPress="Mascara_Hora(this);"  type="text"/></td>
+                    <td><input class="test" id="descanso_ter" maxlength="2" onblur="maior(this.value)" type="text" onKeyPress="MascaraGenerica(this, 'INTEIRO');"/></td>
+                    <td><input id="carga_ter" readonly type="text"/></td>
+                </tr>
+                <tr>
+                    <td>Quarta</td>
+                    <td><input class="test" id="inicio_qua" maxlength="5" onKeyPress="Mascara_Hora(this);"  type="text"/></td>
+                    <td><input class="test" id="fim_qua" maxlength="5" onKeyPress="Mascara_Hora(this);"  type="text"/></td>
+                    <td><input class="test" id="descanso_qua" maxlength="2" onblur="maior(this.value)" type="text" onKeyPress="MascaraGenerica(this, 'INTEIRO');"/></td>
+                    <td><input id="carga_qua" readonly type="text"/></td>
+                </tr>
+                <tr>
+                    <td>Quinta</td>
+                    <td><input class="test" id="inicio_qui" maxlength="5" onKeyPress="Mascara_Hora(this);"  type="text"/></td>
+                    <td><input class="test" id="fim_qui" maxlength="5" onKeyPress="Mascara_Hora(this);"  type="text"/></td>
+                    <td><input class="test" id="descanso_qui" maxlength="2" onblur="maior(this.value)" type="text" onKeyPress="MascaraGenerica(this, 'INTEIRO');"/></td>
+                    <td><input id="carga_qui" readonly type="text"/></td>
+                </tr>
+                <tr>
+                    <td>Sexta</td>
+                    <td><input class="test" id="inicio_sex" maxlength="5" onKeyPress="Mascara_Hora(this);"  type="text"/></td>
+                    <td><input class="test" id="fim_sex" maxlength="5" onKeyPress="Mascara_Hora(this);"  type="text"/></td>
+                    <td><input class="test" id="descanso_sex" maxlength="2" onblur="maior(this.value)" type="text" onKeyPress="MascaraGenerica(this, 'INTEIRO');"/></td>
+                    <td><input id="carga_sex" readonly type="text"/></td>
+                </tr>
+                <tr>
+                    <td colspan="3">Carga Horária Semanal</td>
+                    <td><input id="carga_semanal" readonly type="text"/></td>
+                </tr>
+            </table>
             <button type="submit" name="submit" , onclick="validar()">Enviar</button>
         </fieldset>
     </form>

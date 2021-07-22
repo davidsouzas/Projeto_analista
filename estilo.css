@@ -82,3 +82,7 @@ fieldset.grupo .campo {
 .botao, select, label.checkbox {
     cursor: pointer;
 }
+
+#table1 td {
+    border: 1px solid #000 ;
+}
